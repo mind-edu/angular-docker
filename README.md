@@ -38,3 +38,5 @@ docker exec -it 6b9bd2b85465 /bin/sh
 终端运行截图:
 
 ![](./2.png)
+
+```exit``` 命令退出容器内部，回到终端
