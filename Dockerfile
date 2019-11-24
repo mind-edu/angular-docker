@@ -1,16 +1,16 @@
 ### STAGE 1: Build ###
 
 # We label our stage as 'builder'
-FROM node:9-alpine as builder
+FROM node:10 as builder
 
 COPY package.json package-lock.json ./
 
 RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
+RUN npm i && mkdir /my-app && cp -R ./node_modules ./my-app
 
-WORKDIR /ng-app
+WORKDIR /my-app
 
 COPY . .
 
@@ -29,6 +29,6 @@ COPY nginx/default.conf /etc/nginx/conf.d/
 RUN rm -rf /usr/share/nginx/html/*
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-COPY --from=builder /ng-app/dist /usr/share/nginx/html
+COPY --from=builder /my-app/dist /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
