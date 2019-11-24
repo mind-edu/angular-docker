@@ -1,5 +1,5 @@
 
-# Dockerized Angular 4 App (with Angular CLI)
+# 用 Docker 容器化部署 Angular6
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
