@@ -3,13 +3,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Build docker image
+## 生成 Docker 镜像
 
 ```
 $ docker build -t myapp . 
 ```
 
-## Run the container
+## 运行 Docker 容器
 
 ```
 $ docker run -d -p 8080:80 myapp
