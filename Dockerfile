@@ -5,7 +5,7 @@ FROM node:10 as builder
 
 COPY package.json package-lock.json ./
 
-RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
+# RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
 RUN npm i && mkdir /my-app && cp -R ./node_modules ./my-app
